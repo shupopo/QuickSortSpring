@@ -2,7 +2,11 @@ package com.quicksort.business.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.quicksort.business.domain.User;
+
+
 
 public interface SortService {
 	/**

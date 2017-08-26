@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import com.quicksort.business.domain.User;
 import com.quicksort.business.model.Sort;
@@ -11,7 +12,7 @@ import com.quicksort.business.model.UserSort;
 import com.quicksort.business.service.SortService;
 import com.quicksort.util.TextConverter;
 
-
+@Service
 public class SortServiceImpl implements SortService {
 	
 	 /**
