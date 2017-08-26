@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="/css/setting.css" />
+<link rel="stylesheet" href="/css/style.css" />
+<title>New Tweet Page</title>
+</head>
+<body>
+
+        <div class="container">
+            <form th:action="@{/user/new}" method="post">
+                <h3>登録する</h3>
+                <input placeholder="Name" type="text" name="name" value="" />
+                <input placeholder="Score" type="number" name="score" value="" />
+                <input placeholder="Sex" type="text" name="sex" value="" />
+                <input type="submit" value="Click" />
+            </form>
+        </div>
+
+</body>
+</html>

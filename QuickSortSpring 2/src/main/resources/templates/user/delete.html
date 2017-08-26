@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="/css/setting.css" />
+<link rel="stylesheet" href="/css/style.css" />
+<title>New Tweet Page</title>
+</head>
+<body>
+
+        <div class="container">
+            <form th:action="@{/user/delete}" method="post" th:object="${user}">
+                <h3>削除する</h3>
+            		<input type="hidden" name="id" th:value="*{id}" />
+                <input placeholder="Name" type="text" name="name" th:value="*{name}"/>
+                <input placeholder="Score" type="number" name="score" th:value="*{score}"/>
+                <input placeholder="Sex" type="text" name="sex" th:value="*{sex}"/>
+                <input type="submit" value="Click" />
+            </form>
+        </div>
+
+</body>
+</html>

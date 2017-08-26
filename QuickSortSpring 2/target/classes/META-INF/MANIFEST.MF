@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: QuickSortSpring
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: hiroshimashuuhei
+Implementation-Vendor-Id: com.quicksort
+Build-Jdk: 1.8.0_121
+Implementation-URL: http://projects.spring.io/spring-boot/QuickSortSpr
+ ing/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

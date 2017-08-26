@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Quick Sort</title>
+	<meta http-equiv="Content-Type" 
+		content="text/html; charset=UTF-8" />
+	<style>
+	h1 { font-size:18pt; font-weight:bold; color:gray; }
+	body { font-size:13pt; color:gray; margin:5px 25px; }
+	</style>
+</head>
+<body>
+	<h1>DataSort</h1>
+	<p th:text="${msg}">please wait...</p>
+	<form method="post" action="/">
+		<hr/>
+		<br/>
+		<input type="submit" value="ソート実行" />
+	</form>
+	<br/>
+	<br/>
+    <table>
+	<tr><th>ID</th><th>名前</th><th>スコア</th><th>性別</th></tr>
+	<tr th:each="user : ${users}">
+		<td th:text="${user.id}"></td>
+		<td th:text="${user.name}"></td>
+		<td th:text="${user.score}"></td>
+		<td th:text="${user.sex}"></td>
+	</tr>
+	</table>
+</body>
+</html>
