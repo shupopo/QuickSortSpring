@@ -15,11 +15,8 @@ public class UserSort{
 	
 
 	public List<User> userSort(List<User>userList){
-			User[] user = new User[userList.size()];
-			for(int i = 0;i<userList.size();i++){ 
-				user[i] = userList.get(i);
-			}
-			
+		
+			User[] user = userList.toArray(new User[userList.size()]);
 			User tmp=null; //配列の要素を一時保管する変数
 	        for( int i=0; i<user.length-1; i++ ) {
 	           for( int j=0; j<user.length-i-1; j++ ) {

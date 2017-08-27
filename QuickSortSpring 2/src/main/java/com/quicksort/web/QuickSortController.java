@@ -78,10 +78,8 @@ public class QuickSortController {
 	
 	@RequestMapping(value="/", method=RequestMethod.POST)
 	public ModelAndView send(
-			ModelAndView mav) {
-		
-		
-		//List<User> answer = dao.getSortedUser();
+			ModelAndView mav) {		
+		//List<User> result = dao.getSortedUser();
 		
 		List<User> userList = dao.getAll();
 		List<User> result = sortService.createSortedUser(userList);
@@ -117,28 +115,33 @@ public class QuickSortController {
 
 	@RequestMapping(value = "user/edit", method = RequestMethod.POST)
 	
-	public ModelAndView update(@ModelAttribute User user, 
+	public ModelAndView update(@ModelAttribute User user, @RequestParam String select,@RequestParam long id,
 			ModelAndView mav) {
-		userRepository.saveAndFlush(user);
+		if(select.equals("UPDATE")){
+			userRepository.saveAndFlush(user);
+		}else{
+			userRepository.delete(id);
+		}
+		
 		return new ModelAndView("redirect:/");
 	}
 	
-	@RequestMapping(value = "user/delete/{id}", method = RequestMethod.GET)
-	public ModelAndView delete(@PathVariable int id,
-			ModelAndView mav) {
-		mav.setViewName("user/delete");
-	
-		User user = userRepository.findById((long)id);
-		mav.addObject("user",user);
-		return mav;
-	}
-
-	@RequestMapping(value = "user/delete", method = RequestMethod.POST)
-	public ModelAndView remove(@RequestParam long id, 
-			ModelAndView mav) {
-		userRepository.delete(id);
-		return new ModelAndView("redirect:/");
-	}
+//	@RequestMapping(value = "user/delete/{id}", method = RequestMethod.GET)
+//	public ModelAndView delete(@PathVariable int id,
+//			ModelAndView mav) {
+//		mav.setViewName("user/delete");
+//	
+//		User user = userRepository.findById((long)id);
+//		mav.addObject("user",user);
+//		return mav;
+//	}
+//
+//	@RequestMapping(value = "user/delete", method = RequestMethod.POST)
+//	public ModelAndView remove(@RequestParam long id, 
+//			ModelAndView mav) {
+//		userRepository.delete(id);
+//		return new ModelAndView("redirect:/");
+//	}
 	
 	
 }

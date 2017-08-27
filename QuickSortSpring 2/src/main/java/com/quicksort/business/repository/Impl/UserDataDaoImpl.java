@@ -42,7 +42,7 @@ public class UserDataDaoImpl implements UserDataDao<User> {
 		List<User> list = query.getResultList();
 		return list;
 	}  
-	//asc,descまで指定しないと落ちる
+	//asc or descまで指定しないと落ちる
 	
 	
 	
