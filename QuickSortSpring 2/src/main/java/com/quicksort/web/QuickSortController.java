@@ -62,7 +62,6 @@ public class QuickSortController {
 		dao = new UserDataDaoImpl(entityManager);
 	}
 	
-	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ModelAndView index(ModelAndView mav) {
 		
@@ -73,8 +72,6 @@ public class QuickSortController {
 		mav.setViewName("index");
 		return mav;
 	}
-	
-
 	
 	@RequestMapping(value="/", method=RequestMethod.POST)
 	public ModelAndView send(
@@ -89,59 +86,4 @@ public class QuickSortController {
 		mav.setViewName("index");
 		return mav;
 	}
-	
-
-	
-	@RequestMapping(value = "/user/new", method = RequestMethod.GET)
-	public ModelAndView newUser(ModelAndView mav) {
-	    mav.setViewName("user/new");
-	    return mav;
-	}
-	
-	@RequestMapping(value = "/user/new", method = RequestMethod.POST)
-    public ModelAndView createTweet(User newUser, ModelAndView mav) {
-        userRepository.saveAndFlush(newUser);
-        mav.setViewName("user/create");
-        return mav;
-    }
-	
-	@RequestMapping(value = "user/edit/{id}", method = RequestMethod.GET)
-	public ModelAndView edit(@ModelAttribute User user, @PathVariable int id,ModelAndView mav) {
-		mav.setViewName("user/edit");
-		User user1 = userRepository.findById((long)id);
-		mav.addObject("user",user1);
-		return mav;
-	}
-
-	@RequestMapping(value = "user/edit", method = RequestMethod.POST)
-	
-	public ModelAndView update(@ModelAttribute User user, @RequestParam String select,@RequestParam long id,
-			ModelAndView mav) {
-		if(select.equals("UPDATE")){
-			userRepository.saveAndFlush(user);
-		}else{
-			userRepository.delete(id);
-		}
-		
-		return new ModelAndView("redirect:/");
-	}
-	
-//	@RequestMapping(value = "user/delete/{id}", method = RequestMethod.GET)
-//	public ModelAndView delete(@PathVariable int id,
-//			ModelAndView mav) {
-//		mav.setViewName("user/delete");
-//	
-//		User user = userRepository.findById((long)id);
-//		mav.addObject("user",user);
-//		return mav;
-//	}
-//
-//	@RequestMapping(value = "user/delete", method = RequestMethod.POST)
-//	public ModelAndView remove(@RequestParam long id, 
-//			ModelAndView mav) {
-//		userRepository.delete(id);
-//		return new ModelAndView("redirect:/");
-//	}
-	
-	
 }

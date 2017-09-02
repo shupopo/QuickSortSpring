@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.quicksort.business.domain.User;
 import com.quicksort.business.model.Sort;
 import com.quicksort.business.model.UserSort;
+import com.quicksort.business.repository.UserRepository;
 import com.quicksort.business.service.SortService;
 import com.quicksort.util.TextConverter;
 
@@ -26,22 +27,34 @@ public class SortServiceImpl implements SortService {
 	
 	@Autowired
 	private UserSort userSort;
+	
+	@Autowired
+	private UserRepository userRepository;
 
 	@Override
 	public int[] createSortedNumArray(int[] numArray) {
-		
 
-		//int[] numArray = TextConverter.toNumArray(text);
 		sort.sortNumArray(numArray);
 		return numArray;
 	}
 
 	@Override
 	public List<User> createSortedUser(List<User> userList) {
-		// TODO Auto-generated method stub
-		
+
 		List<User> sortedUserList = userSort.userSort(userList);
 		return sortedUserList;
+
+	}
+
+	@Override
+	public void editUser(String select, User user, long id) {
+
+		if(select.equals("UPDATE")){
+			userRepository.saveAndFlush(user);
+		}else{
+			userRepository.delete(id);
+		}
+			
 	}
 
 }
