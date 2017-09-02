@@ -74,9 +74,6 @@ public class QuickSortController {
 	@RequestMapping(value="/", method=RequestMethod.POST)
 	public ModelAndView send(
 			ModelAndView mav) {		
-		//List<User> result = dao.getSortedUser();
-//		List<User> userList = dao.getAll();
-//		List<User> result = sortService.createSortedUser(userList);
 		List<User> result = sortService.createSortedUserList();
 		mav.addObject("msg","ソート後のデータです。");
 		mav.addObject("users", result);

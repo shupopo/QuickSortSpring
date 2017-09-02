@@ -63,6 +63,7 @@ public class SortServiceImpl implements SortService {
 	private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	
     private Scanner scanner = new Scanner(System.in);
+    
 	@Override
 	public List<User> createSortedUser(List<User> userList) {
 		List<User> sortedUserList = userSort.userSort(userList);
@@ -89,8 +90,8 @@ public class SortServiceImpl implements SortService {
 			user[i] = users.get(i);
 			scoreList.add(user[i].getScore());
 		}
-		List<Integer> scoreListNoDuplication = new ArrayList<Integer>(new HashSet<>(scoreList));
-		int[] scoreArray = toArr(scoreListNoDuplication);
+		List<Integer> scoreListNotDuplicated = new ArrayList<Integer>(new HashSet<>(scoreList));
+		int[] scoreArray = toArr(scoreListNotDuplicated);
 		sort.sortNumArray(scoreArray);
 		List<User> result = new ArrayList<User>();
 		for(int i = 0;i<scoreArray.length;i++){
