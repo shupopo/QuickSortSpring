@@ -47,7 +47,7 @@ public class UserDataDaoImpl implements UserDataDao<User> {
 	@Override
 	public int[] getScore() {
 		// TODO Auto-generated method stub
-		Query query = entityManager.createNativeQuery("select distinct score from quicksort",User.class);
+		Query query = entityManager.createNativeQuery("select distinct score from quicksort order by score asc",User.class);
 		List<Integer> list = query.getResultList();
 		int[] scoreArray = toArr(list);
 		entityManager.close();

@@ -17,8 +17,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 	public User findByScoreLike(int i);
 	
-	@Query(value="select distinct score from quicksort",nativeQuery = true)
-    public int[] getScores();
+//	@Query("select distinct score from quicksort")
+//    public int[] getScores();
 //
 //	@Query("select * from quicksort order by score")
 //	public List<User> sortByScore();

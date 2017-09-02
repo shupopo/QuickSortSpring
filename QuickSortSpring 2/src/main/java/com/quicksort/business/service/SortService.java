@@ -22,6 +22,8 @@ public interface SortService {
 	
 	void editUser(String select, User user);
 	
+	List<User> createSortedUserList();
+	
 	
 
 }
