@@ -52,34 +52,29 @@ public class SortServiceImpl implements SortService {
 
 	@Override
 	public int[] createSortedNumArray(int[] numArray) {
-
 		sort.sortNumArray(numArray);
 		return numArray;
 	}
 
 	@Override
 	public List<User> createSortedUser(List<User> userList) {
-
 		List<User> sortedUserList = userSort.userSort(userList);
 		return sortedUserList;
-
 	}
 
 	@Override
 	public void editUser(String select, User user) {
-
 		if(select.equals("UPDATE")){
 			userRepository.saveAndFlush(user);
 		}else{
 			userRepository.delete(user.getId());
-		}
-			
+		}		
 	}
 
 	@Override
 	public List<User> createSortedUserList() {
 //		int[] arrayToSort = dao.getScore();
-		List<User> users = userRepository.findAll();
+		List<User> users = dao.getAll();
 		int recordSize = users.size();
 		User[] user = new User[recordSize];
 		List<Integer>scoreList = new ArrayList<Integer>();

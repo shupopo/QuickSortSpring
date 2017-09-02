@@ -63,10 +63,8 @@ public class QuickSortController {
 	}
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
-	public ModelAndView index(ModelAndView mav) {
-		
+	public ModelAndView index(ModelAndView mav) {	
 		List<User> users = dao.getAll();
-		
 		mav.addObject("users", users);
 		mav.addObject("msg","ソート前のデータです");
 		mav.setViewName("index");
