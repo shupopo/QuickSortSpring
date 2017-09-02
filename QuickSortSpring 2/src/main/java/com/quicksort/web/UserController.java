@@ -38,7 +38,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/user/new", method = RequestMethod.POST)
-    public ModelAndView createTweet(User newUser, ModelAndView mav) {
+    public ModelAndView createUser(User newUser, ModelAndView mav) {
         userRepository.saveAndFlush(newUser);
         mav.setViewName("user/create");
         return mav;

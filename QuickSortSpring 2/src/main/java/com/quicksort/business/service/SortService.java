@@ -1,5 +1,6 @@
 package com.quicksort.business.service;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -24,6 +25,12 @@ public interface SortService {
 	
 	List<User> createSortedUserList();
 	
+	void registProfile() throws IOException;
+
+	void editProfile() throws IOException;
 	
+	void displayUserList(List<User> list);
+
+
 
 }

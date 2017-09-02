@@ -1,3 +1,6 @@
+import java.util.List;
+
+import com.quicksort.business.domain.User;
 
 public class QuickSortControllerTest {
 	
@@ -29,5 +32,16 @@ public class QuickSortControllerTest {
 //  for (int i=0;i<l;i++) arr[i] = iter.next();
 //  return arr;
 //}  
+	
+//	@Override
+//	public void displayUserList(List<User> list) {
+//		List<User> userList = list;
+//			System.out.println("ID"+" : "+"名前"+" : "+"スコア"+" : "+"性別");
+//			for(int i=0;i<userList.size();i++){
+//				User user = userList.get(i);
+//				System.out.println(user.getId()+" : "+user.getName()+" : "+user.getScore()+" : "+user.getSex());
+//			}
+//
+//	}
 
 }

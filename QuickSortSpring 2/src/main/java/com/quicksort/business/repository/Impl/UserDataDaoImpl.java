@@ -53,6 +53,7 @@ public class UserDataDaoImpl implements UserDataDao<User> {
 		entityManager.close();
 		return scoreArray;		
 	}
+	//エンティティしか取ってこれない？？テーブルの値を直接取るのは難しいのか？？
 	
 	//http://qiita.com/kics/items/a1f002a303298061febf
 	private static int[] toArr(List<Integer> list){
