@@ -77,10 +77,15 @@ public class QuickSortController {
 	public ModelAndView send(
 			ModelAndView mav) {		
 		//List<User> result = dao.getSortedUser();
-		
-		List<User> userList = dao.getAll();
-		List<User> result = sortService.createSortedUser(userList);
-		
+//		List<User> userList = dao.getAll();
+//		List<User> result = sortService.createSortedUser(userList);
+		int[] arrayToSort = userRepository.getScores();
+		int[] sortedArray = sortService.createSortedNumArray(arrayToSort);
+		List<User> result = null;
+		for(int i = 0;i<sortedArray.length;i++){
+			List<User> user = userRepository.findByScore(sortedArray[i]);
+			result.addAll(user);
+		}
 		mav.addObject("msg","ソート後のデータです。");
 		mav.addObject("users", result);
 		mav.setViewName("index");

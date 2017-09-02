@@ -13,7 +13,7 @@ public class QuickSortControllerTest {
 //	List<Integer> scoreListNoDuplication = new ArrayList<Integer>(new HashSet<>(scoreList));
 //	int[] scoreArray = toArr(scoreListNoDuplication);
 //	
-//	int[] numArray = sortService.createSortedNumArray(scoreArray);
+//	
 //    
 //	List<User> result = new ArrayList<User>();//Listはインターフェースなのでインスタンスを生成できない
 //	for(int i=0;i<recordSize;i++){

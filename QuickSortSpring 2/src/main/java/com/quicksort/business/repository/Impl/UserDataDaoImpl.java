@@ -13,6 +13,7 @@ import com.quicksort.business.repository.UserDataDao;
 
 @Repository
 public class UserDataDaoImpl implements UserDataDao<User> {
+	
 	private static final long serialVersionUID = 1L;
 	
 	private EntityManager entityManager;
@@ -23,7 +24,6 @@ public class UserDataDaoImpl implements UserDataDao<User> {
 	public UserDataDaoImpl(EntityManager manager){
 		entityManager = manager;
 	}
-	
 	
 	@Override
 	public List<User> getAll() {
@@ -44,10 +44,6 @@ public class UserDataDaoImpl implements UserDataDao<User> {
 	}  
 	//asc or descまで指定しないと落ちる
 	
-	
-	
-	
-	
 	@Override
 	public int[] getScore() {
 		// TODO Auto-generated method stub
@@ -55,9 +51,7 @@ public class UserDataDaoImpl implements UserDataDao<User> {
 		List<Integer> list = query.getResultList();
 		int[] scoreArray = toArr(list);
 		entityManager.close();
-		return scoreArray;
-		
-		
+		return scoreArray;		
 	}
 	
 	//http://qiita.com/kics/items/a1f002a303298061febf

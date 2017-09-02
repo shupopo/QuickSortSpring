@@ -53,10 +53,9 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "user/edit", method = RequestMethod.POST)
-	
 	public ModelAndView update(@ModelAttribute User user, @RequestParam String select,@RequestParam long id,
 			ModelAndView mav) {
-		sortService.editUser(select, user, id);
+		sortService.editUser(select, user);
 		return new ModelAndView("redirect:/");
 	}
 

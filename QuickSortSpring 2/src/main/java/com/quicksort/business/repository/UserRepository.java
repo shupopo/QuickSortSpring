@@ -12,17 +12,13 @@ import com.quicksort.business.domain.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 		
 	public User findById(Long id);
-
 	
-
-	public User findByScore(int score);
-
-
+	public List<User> findByScore(int score);
 
 	public User findByScoreLike(int i);
 	
-//	@Query("select distinct score from quicksort")
-//    public List<Integer> getscores();
+	@Query(value="select distinct score from quicksort",nativeQuery = true)
+    public int[] getScores();
 //
 //	@Query("select * from quicksort order by score")
 //	public List<User> sortByScore();

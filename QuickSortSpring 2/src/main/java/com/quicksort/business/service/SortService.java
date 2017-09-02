@@ -20,7 +20,7 @@ public interface SortService {
 	
 	List<User> createSortedUser(List<User> userList);
 	
-	void editUser(String select, User user,long id);
+	void editUser(String select, User user);
 	
 	
 

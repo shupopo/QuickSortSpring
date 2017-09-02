@@ -47,12 +47,12 @@ public class SortServiceImpl implements SortService {
 	}
 
 	@Override
-	public void editUser(String select, User user, long id) {
+	public void editUser(String select, User user) {
 
 		if(select.equals("UPDATE")){
 			userRepository.saveAndFlush(user);
 		}else{
-			userRepository.delete(id);
+			userRepository.delete(user.getId());
 		}
 			
 	}
