@@ -34,8 +34,7 @@ import javax.persistence.PersistenceContext;
 
 @Controller
 public class QuickSortController {
-	
-	
+
 	/**
 	 * SortServiceImplをBean登録せずに＠Autowiredアノテーションをつけてもインスタンスは自動的に生成されない
 	 * 
@@ -44,38 +43,37 @@ public class QuickSortController {
 	 * 
 	 * 
 	 */
-	
+
 	@Autowired
 	private SortService sortService;
-	
+
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@PersistenceContext
 	EntityManager entityManager;
-	
+
 	@Autowired
 	UserDataDaoImpl dao;
-	
+
 	@PostConstruct
-	public void init(){
+	public void init() {
 		dao = new UserDataDaoImpl(entityManager);
 	}
-	
-	@RequestMapping(value="/", method=RequestMethod.GET)
-	public ModelAndView index(ModelAndView mav) {	
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView index(ModelAndView mav) {
 		List<User> users = dao.getAll();
 		mav.addObject("users", users);
-		mav.addObject("msg","ソート前のデータです");
+		mav.addObject("msg", "ソート前のデータです");
 		mav.setViewName("index");
 		return mav;
 	}
-	
-	@RequestMapping(value="/", method=RequestMethod.POST)
-	public ModelAndView send(
-			ModelAndView mav) {		
+
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public ModelAndView send(ModelAndView mav) {
 		List<User> result = sortService.createSortedUserList();
-		mav.addObject("msg","ソート後のデータです。");
+		mav.addObject("msg", "ソート後のデータです。");
 		mav.addObject("users", result);
 		mav.setViewName("index");
 		return mav;

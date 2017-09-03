@@ -28,6 +28,4 @@ public interface SortService {
 	
 	void displayUserList(List<User> list);
 
-
-
 }
