@@ -19,7 +19,6 @@ import org.springframework.stereotype.Service;
 
 import com.quicksort.business.domain.User;
 import com.quicksort.business.model.Sort;
-import com.quicksort.business.model.UserSort;
 import com.quicksort.business.repository.UserRepository;
 import com.quicksort.business.repository.Impl.UserDataDaoImpl;
 import com.quicksort.business.service.SortService;
@@ -34,9 +33,6 @@ public class SortServiceImpl implements SortService {
 	@Qualifier("com.quicksort.business.model.BubbleSort")
 	@Autowired
 	private Sort sort;
-
-	@Autowired
-	private UserSort userSort;
 
 	@Autowired
 	private UserRepository userRepository;
