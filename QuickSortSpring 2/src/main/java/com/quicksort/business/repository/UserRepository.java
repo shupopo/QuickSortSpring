@@ -10,9 +10,9 @@ import com.quicksort.business.domain.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-		
+
 	public User findById(Long id);
-	
+
 	public List<User> findByScore(int score);
-	
+
 }

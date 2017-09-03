@@ -10,17 +10,17 @@ import javax.persistence.Table;
 @Table(name = "quicksort")
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    
-    private String name;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
-    private String sex;
+	private String name;
 
-    private int score;
+	private String sex;
 
-    public Long getId() {
+	private int score;
+
+	public Long getId() {
 		return id;
 	}
 
@@ -51,7 +51,5 @@ public class User {
 	public void setScore(int score) {
 		this.score = score;
 	}
-
-	
 
 }
