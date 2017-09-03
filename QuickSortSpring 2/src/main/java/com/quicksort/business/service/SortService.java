@@ -17,9 +17,6 @@ public interface SortService {
 	 * 変換
 	 * numArrayをコントローラーに返すのでメソッド名をinputからcreateNumArrayに変更
 	 */
-	int[] createSortedNumArray(int[]scores);
-	
-	List<User> createSortedUser(List<User> userList);
 	
 	void editUser(String select, User user);
 	

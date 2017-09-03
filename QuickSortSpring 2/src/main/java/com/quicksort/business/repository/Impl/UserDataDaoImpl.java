@@ -36,15 +36,6 @@ public class UserDataDaoImpl implements UserDataDao<User> {
 	//http://qiita.com/tag1216/items/55742fdb442e5617f727
 	
 	@Override
-	public List<User> getSortedUser() {
-		// TODO Auto-generated method s
-		Query query = entityManager.createNativeQuery("select * from quicksort order by score asc,id asc",User.class);
-		List<User> list = query.getResultList();
-		return list;
-	}  
-	//asc or descまで指定しないと落ちる
-	
-	@Override
 	public int[] getScore() {
 		// TODO Auto-generated method stub
 		Query query = entityManager.createNativeQuery("select distinct score from quicksort order by score asc");
@@ -53,7 +44,7 @@ public class UserDataDaoImpl implements UserDataDao<User> {
 		entityManager.close();
 		return scoreArray;		
 	}
-	//エンティティしか取ってこれない？？テーブルの値を直接取るのは難しいのか？？
+	//引数にエンティティのクラスを指定するとエンティティしか取ってこれなくなる
 	
 	//http://qiita.com/kics/items/a1f002a303298061febf
 	private static int[] toArr(List<Integer> list){
@@ -64,7 +55,4 @@ public class UserDataDaoImpl implements UserDataDao<User> {
         for (int i=0;i<l;i++) arr[i] = iter.next();
         return arr;
     }
-	
-
-	
 }

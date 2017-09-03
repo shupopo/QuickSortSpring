@@ -54,22 +54,11 @@ public class SortServiceImpl implements SortService {
 		dao = new UserDataDaoImpl(entityManager);
 	}
 
-	@Override
-	public int[] createSortedNumArray(int[] numArray) {
-		sort.sortNumArray(numArray);
-		return numArray;
-	}
 	
 	private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	
     private Scanner scanner = new Scanner(System.in);
     
-	@Override
-	public List<User> createSortedUser(List<User> userList) {
-		List<User> sortedUserList = userSort.userSort(userList);
-		return sortedUserList;
-	}
-
 	@Override
 	public void editUser(String select, User user) {
 		if(select.equals("UPDATE")){

@@ -9,6 +9,4 @@ public interface UserDataDao <T> extends Serializable {
 	
 	public int[] getScore();
 	
-	public List<T> getSortedUser();
-	
 }
