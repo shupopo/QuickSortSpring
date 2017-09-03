@@ -81,17 +81,7 @@ public class SortServiceImpl implements SortService {
 
 	@Override
 	public List<User> createSortedUserList() {
-//		int[] scoreArray = dao.getScore();
-		List<User> users = dao.getAll();
-		int recordSize = users.size();
-		User[] user = new User[recordSize];
-		List<Integer>scoreList = new ArrayList<Integer>();
-		for(int i=0;i<recordSize;i++){
-			user[i] = users.get(i);
-			scoreList.add(user[i].getScore());
-		}
-		List<Integer> scoreListNotDuplicated = new ArrayList<Integer>(new HashSet<>(scoreList));
-		int[] scoreArray = toArr(scoreListNotDuplicated);
+		int[] scoreArray = dao.getScore();
 		sort.sortNumArray(scoreArray);
 		List<User> result = new ArrayList<User>();
 		for(int i = 0;i<scoreArray.length;i++){

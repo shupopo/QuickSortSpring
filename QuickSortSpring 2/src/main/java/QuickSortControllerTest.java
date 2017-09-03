@@ -41,6 +41,20 @@ public class QuickSortControllerTest {
 //				User user = userList.get(i);
 //				System.out.println(user.getId()+" : "+user.getName()+" : "+user.getScore()+" : "+user.getSex());
 //			}
+	
+	/**
+	 * SQLクエリを使わずにスコアのリストを取得する方法
+	 */
+//	List<User> users = dao.getAll();
+//	int recordSize = users.size();
+//	User[] user = new User[recordSize];
+//	List<Integer>scoreList = new ArrayList<Integer>();
+//	for(int i=0;i<recordSize;i++){
+//		user[i] = users.get(i);
+//		scoreList.add(user[i].getScore());
+//	}
+//	List<Integer> scoreListNotDuplicated = new ArrayList<Integer>(new HashSet<>(scoreList));
+//	int[] scoreArray = toArr(scoreListNotDuplicated);
 //
 //	}
 
