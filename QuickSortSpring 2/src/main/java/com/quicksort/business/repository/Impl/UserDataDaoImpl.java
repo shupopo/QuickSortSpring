@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
@@ -15,20 +16,21 @@ import com.quicksort.business.repository.UserDataDao;
 public class UserDataDaoImpl implements UserDataDao<User> {
 
 	private static final long serialVersionUID = 1L;
-
+	
+	@PersistenceContext
 	private EntityManager entityManager;
 
 	public UserDataDaoImpl() {
 		super();
 	}
 
-	public UserDataDaoImpl(EntityManager manager) {
-		entityManager = manager;
-	}
+//	public UserDataDaoImpl(EntityManager manager) {
+//		entityManager = manager;
+//	}
 
 	@Override
 	public List<User> getAll() {
-		Query query = entityManager.createNativeQuery("select * from quicksort", User.class);
+		Query query = entityManager.createNativeQuery("select * from users", User.class);
 		List<User> list = query.getResultList();
 		entityManager.close();
 		return list;
@@ -40,7 +42,7 @@ public class UserDataDaoImpl implements UserDataDao<User> {
 	@Override
 	public int[] getScore() {
 		// TODO Auto-generated method stub
-		Query query = entityManager.createNativeQuery("select distinct score from quicksort order by score asc");
+		Query query = entityManager.createNativeQuery("select distinct score from users order by score asc");
 		List<Integer> list = query.getResultList();
 		int[] scoreArray = toArr(list);
 		entityManager.close();

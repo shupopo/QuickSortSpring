@@ -19,34 +19,35 @@ import org.springframework.stereotype.Service;
 
 import com.quicksort.business.domain.User;
 import com.quicksort.business.model.Sort;
+import com.quicksort.business.repository.UserDataDao;
 import com.quicksort.business.repository.UserRepository;
 import com.quicksort.business.repository.Impl.UserDataDaoImpl;
-import com.quicksort.business.service.SortService;
+import com.quicksort.business.service.UserService;
 
 @Service
-public class SortServiceImpl implements SortService {
+public class UserServiceImpl implements UserService {
 
 	/**
 	 * inputメソッドでソートを使うためにニューする このクラスでしか使わないので、private
 	 * 
 	 */
-	@Qualifier("com.quicksort.business.model.BubbleSort")
+	@Qualifier("BubbleSort")
 	@Autowired
 	private Sort sort;
 
 	@Autowired
 	private UserRepository userRepository;
 
-	@PersistenceContext
-	EntityManager entityManager;
+//	@PersistenceContext
+//	EntityManager entityManager;
 
 	@Autowired
-	UserDataDaoImpl dao;
+	private UserDataDao dao;
 
-	@PostConstruct
-	public void init() {
-		dao = new UserDataDaoImpl(entityManager);
-	}
+//	@PostConstruct
+//	public void init() {
+//		dao = new UserDataDaoImpl(entityManager);
+//	}
 
 	private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -63,7 +64,9 @@ public class SortServiceImpl implements SortService {
 
 	@Override
 	public List<User> createSortedUserList() {
-		int[] scoreArray = dao.getScore();
+		//int[] scoreArray = dao.getScore();
+		List<Integer> scoreList = userRepository.getScores();
+		int[] scoreArray = toArr(scoreList);
 		sort.sortNumArray(scoreArray);
 		List<User> result = new ArrayList<User>();
 		for (int i = 0; i < scoreArray.length; i++) {

@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.quicksort.business.domain.User;
 import com.quicksort.business.repository.UserRepository;
 import com.quicksort.business.repository.Impl.UserDataDaoImpl;
-import com.quicksort.business.service.SortService;
+import com.quicksort.business.service.UserService;
 
 @Controller
 public class UserController {
@@ -25,7 +25,7 @@ public class UserController {
 	private UserRepository userRepository;
 
 	@Autowired
-	private SortService sortService;
+	private UserService sortService;
 
 	@RequestMapping(value = "/user/new", method = RequestMethod.GET)
 	public ModelAndView newUser(ModelAndView mav) {

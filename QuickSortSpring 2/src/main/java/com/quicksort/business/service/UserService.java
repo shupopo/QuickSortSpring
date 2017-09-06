@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.quicksort.business.domain.User;
 
-public interface SortService {
+public interface UserService {
 	/**
 	 * テキストを受け取りクイックソートしたのち整数の配列を返す。
 	 * 

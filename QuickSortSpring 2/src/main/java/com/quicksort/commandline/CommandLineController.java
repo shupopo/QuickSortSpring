@@ -6,9 +6,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 import com.quicksort.business.domain.User;
+import com.quicksort.business.repository.UserDataDao;
 import com.quicksort.business.repository.UserRepository;
 import com.quicksort.business.repository.Impl.UserDataDaoImpl;
-import com.quicksort.business.service.SortService;
+import com.quicksort.business.service.UserService;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -23,18 +24,16 @@ import javax.persistence.PersistenceContext;
 public class CommandLineController implements CommandLineRunner {
 
 	@Autowired
-	private SortService sortService;
+	private UserService sortService;
+	
+	@Autowired
+	private UserRepository userRepository;
 
-	@PersistenceContext
-	EntityManager entityManager;
+//	@PersistenceContext
+//	EntityManager entityManager;
 
 	@Autowired
-	UserDataDaoImpl dao;
-
-	@PostConstruct
-	public void init() {
-		dao = new UserDataDaoImpl(entityManager);
-	}
+	UserDataDao dao;
 
 	private Scanner scanner = new Scanner(System.in);
 
@@ -56,7 +55,7 @@ public class CommandLineController implements CommandLineRunner {
 				break;
 			case 1:
 				System.out.println("ソート前のデータを表示します。");
-				List<User> userList = dao.getAll();
+				List<User> userList = userRepository.findAll();
 				sortService.displayUserList(userList);
 				break;
 			case 2:

@@ -14,5 +14,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	public User findById(Long id);
 
 	public List<User> findByScore(int score);
+	
+	@Query("SELECT DISTINCT(u.score) FROM User u ORDER BY u.score ASC")
+	List<Integer> getScores();
 
 }

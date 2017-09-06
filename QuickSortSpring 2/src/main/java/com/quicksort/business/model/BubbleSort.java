@@ -2,7 +2,7 @@ package com.quicksort.business.model;
 
 import org.springframework.stereotype.Component;
 
-@Component("com.quicksort.business.model.BubbleSort")
+@Component("BubbleSort")
 public class BubbleSort implements Sort {
 
 	@Override
