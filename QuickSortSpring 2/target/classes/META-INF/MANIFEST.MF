@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: QuickSortSpring
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: hiroshimashuuhei
+Built-By: hiroshimashuhei
 Implementation-Vendor-Id: com.quicksort
-Build-Jdk: 1.8.0_121
+Build-Jdk: 1.8.0_144
 Implementation-URL: http://projects.spring.io/spring-boot/QuickSortSpr
  ing/
 Created-By: Maven Integration for Eclipse
